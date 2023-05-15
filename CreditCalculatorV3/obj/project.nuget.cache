@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "DRyGyg32OtN7lFJTArzURvndNM2omKxhsgLqABbKch1x6uGYTuIiD3hR80jI/Kna+7p71eat3gkJsYOgeNh7VQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\admin\\RiderProjects\\CreditCalculatorV3\\CreditCalculatorV3\\CreditCalculatorV3.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\admin\\.nuget\\packages\\fluentvalidation\\11.5.2\\fluentvalidation.11.5.2.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.2\\fluentvalidation.dependencyinjectionextensions.11.5.2.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.1.0\\microsoft.extensions.dependencyinjection.abstractions.2.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}

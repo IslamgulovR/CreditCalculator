@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\CreditCalculatorV3.props" />
+</Project>
