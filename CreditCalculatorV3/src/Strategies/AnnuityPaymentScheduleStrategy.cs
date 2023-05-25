@@ -10,9 +10,12 @@ public class AnnuityPaymentScheduleStrategy : IPaymentScheduleStrategy
     public List<Payment> CreatePaymentSchedule(CreateScheduleDto dto)
     {
         var paymentsList = new List<Payment>();
+
+        //Проценты выраженные в дробях
+        var percents = dto.Percent / 100;
         
         //Месячная процентная ставка
-        var percentRate = Math.Round(dto.Percent / 100 / 100 * MonthsInYear, 2);
+        var percentRate = Math.Round(percents / 100 * MonthsInYear, 2);
             
         //Ежемесячный платёж
         var annuity = Math.Round(dto.Sum * (percentRate / (decimal)(1.0 - Math.Pow((double)(1 + percentRate), -dto.Months))), 2);
@@ -26,7 +29,10 @@ public class AnnuityPaymentScheduleStrategy : IPaymentScheduleStrategy
             var nextMonth = dto.DateBegin.AddMonths(month);
             var daysInMonth = DateTime.DaysInMonth(nextMonth.Year, nextMonth.Month);
             var payDate = PayDateService.GetPayDate(nextMonth.Year, nextMonth.Month, dto.PayDay, daysInMonth);
-            var daysInYear = Convert.ToDecimal(DateTime.IsLeapYear(payDate.Year) ? 366 : 365);
+            var daysInYear = Convert.ToDecimal(DateTime.IsLeapYear(payDate.Year)
+                                               && payDate <= new DateTime(payDate.Year, 2, 29, 23, 59, 59)
+                ? 366
+                : 365);
 
             //Сумма платежа по телу долга
             var percentSum = Math.Round(debtLeft * dto.Percent / 100 * daysInMonth / daysInYear, 2);
